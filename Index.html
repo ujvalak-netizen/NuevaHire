@@ -1,215 +1,556 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NuevaHire | Premium Recruitment & HR Consultancy</title>
-    <!-- Tailwind CSS for modern styling -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- FontAwesome for clean icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NuevaHire | AI-Powered Hiring Platform</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#f8fbff;
+color:#1b1b1b;
+overflow-x:hidden;
+}
+
+/* Animated Background */
+
+body::before{
+content:'';
+position:fixed;
+width:700px;
+height:700px;
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+filter:blur(220px);
+top:-250px;
+right:-250px;
+opacity:.18;
+z-index:-1;
+}
+
+body::after{
+content:'';
+position:fixed;
+width:650px;
+height:650px;
+background:#06b6d4;
+filter:blur(230px);
+bottom:-250px;
+left:-250px;
+opacity:.15;
+z-index:-1;
+}
+
+/* Navbar */
+
+nav{
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+width:92%;
+max-width:1200px;
+padding:15px 35px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+background:rgba(255,255,255,.75);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.3);
+border-radius:60px;
+box-shadow:0 20px 40px rgba(0,0,0,.08);
+
+z-index:999;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+font-size:24px;
+font-weight:700;
+color:#0F172A;
+}
+
+.logo img{
+height:52px;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:35px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:#444;
+font-weight:500;
+transition:.3s;
+}
+
+nav ul li a:hover{
+color:#2563EB;
+}
+
+.nav-btn{
+background:linear-gradient(90deg,#2563EB,#7C3AED);
+padding:13px 26px;
+color:#fff;
+text-decoration:none;
+border-radius:50px;
+font-weight:600;
+transition:.3s;
+}
+
+.nav-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 15px 30px rgba(37,99,235,.35);
+}
+
+/* Hero */
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:120px 10%;
+gap:80px;
+}
+
+.left{
+flex:1;
+}
+
+.left h1{
+font-size:62px;
+line-height:1.1;
+color:#0F172A;
+margin-bottom:20px;
+}
+
+.left h1 span{
+background:linear-gradient(90deg,#2563EB,#7C3AED);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.left p{
+font-size:20px;
+line-height:1.8;
+color:#666;
+margin-bottom:40px;
+}
+
+.buttons{
+display:flex;
+gap:20px;
+}
+
+.primary{
+background:linear-gradient(90deg,#2563EB,#7C3AED);
+padding:18px 38px;
+color:white;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+}
+
+.secondary{
+border:2px solid #2563EB;
+padding:18px 38px;
+border-radius:50px;
+text-decoration:none;
+color:#2563EB;
+font-weight:600;
+}
+
+.right{
+flex:1;
+display:flex;
+justify-content:center;
+}
+
+.card{
+width:520px;
+background:rgba(255,255,255,.75);
+backdrop-filter:blur(18px);
+border-radius:30px;
+padding:40px;
+box-shadow:0 30px 60px rgba(0,0,0,.08);
+animation:float 5s ease-in-out infinite;
+}
+
+.card img{
+width:160px;
+display:block;
+margin:auto;
+}
+
+.dashboard{
+margin-top:30px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+}
+
+.box{
+padding:25px;
+background:white;
+border-radius:18px;
+box-shadow:0 10px 20px rgba(0,0,0,.05);
+text-align:center;
+}
+
+.box h3{
+font-size:34px;
+color:#2563EB;
+}
+
+.box p{
+color:#666;
+}
+
+/* Features */
+
+section{
+padding:90px 10%;
+}
+
+.title{
+text-align:center;
+font-size:42px;
+margin-bottom:70px;
+color:#0F172A;
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.feature{
+background:rgba(255,255,255,.75);
+padding:35px;
+border-radius:25px;
+backdrop-filter:blur(20px);
+transition:.4s;
+box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+.feature:hover{
+transform:translateY(-10px);
+}
+
+.feature h3{
+margin:20px 0;
+color:#2563EB;
+}
+
+.feature p{
+color:#666;
+line-height:1.7;
+}
+
+/* Stats */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+text-align:center;
+}
+
+.counter{
+font-size:54px;
+font-weight:700;
+color:#2563EB;
+}
+
+.stat p{
+margin-top:10px;
+color:#666;
+}
+
+/* CTA */
+
+.cta{
+background:linear-gradient(135deg,#2563EB,#7C3AED);
+color:white;
+padding:90px 10%;
+text-align:center;
+}
+
+.cta h2{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.cta p{
+font-size:20px;
+margin-bottom:35px;
+}
+
+.cta a{
+background:white;
+color:#2563EB;
+padding:18px 45px;
+border-radius:50px;
+text-decoration:none;
+font-weight:700;
+}
+
+footer{
+padding:40px;
+text-align:center;
+color:#777;
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+100%{transform:translateY(0);}
+}
+
+@media(max-width:900px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.left h1{
+font-size:42px;
+}
+
+.dashboard{
+grid-template-columns:1fr;
+}
+
+.stats{
+grid-template-columns:repeat(2,1fr);
+}
+
+nav ul{
+display:none;
+}
+
+.card{
+width:100%;
+}
+
+}
+
+</style>
+
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans">
 
-    <!-- Header / Navigation -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <i class="fa-solid fa-briefcase text-blue-600 text-2xl"></i>
-                <span class="text-xl font-bold text-slate-900 tracking-tight">Nueva<span class="text-blue-600">Hire</span></span>
-            </div>
-            <nav class="hidden md:flex space-x-8 font-medium text-slate-600">
-                <a href="#services" class="hover:text-blue-600 transition">Services</a>
-                <a href="#why-us" class="hover:text-blue-600 transition">Why Choose Us</a>
-                <a href="#contact" class="hover:text-blue-600 transition">Contact Us</a>
-            </nav>
-            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-medium transition shadow-sm">
-                Get Started
-            </a>
-        </div>
-    </header>
+<body>
 
-    <!-- Hero Section -->
-    <section class="relative bg-gradient-to-br from-slate-900 to-indigo-950 text-white py-24 px-6 overflow-hidden">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
-            <div class="space-y-6 text-center md:text-left">
-                <div class="inline-block bg-blue-500/20 text-blue-400 px-4 py-1.5 rounded-full text-sm font-semibold tracking-wide">
-                    Connecting Elite Talent with World-Class Companies
-                </div>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
-                    Your Next Great Hire Is Already Out There.
-                </h1>
-                <p class="text-slate-300 text-lg sm:text-xl max-w-xl mx-auto md:mx-0">
-                    At NuevaHire, we bridge the gap between visionary companies and exceptional talent. Let us handle the scouting while you build the future.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4 pt-4">
-                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white text-center font-semibold px-8 py-4 rounded-xl transition shadow-lg shadow-blue-900/30">
-                        Hire Top Talent
-                    </a>
-                    <a href="#services" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-center font-semibold px-8 py-4 rounded-xl border border-slate-700 transition">
-                        Our Services
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Graphic Element / Hero Visual Substitute -->
-            <div class="hidden md:flex justify-center relative">
-                <div class="w-96 h-96 bg-gradient-to-tr from-blue-600 to-indigo-500 rounded-2xl rotate-6 opacity-80 shadow-2xl flex items-center justify-center text-8xl">
-                    <i class="fa-solid fa-users-viewfinder text-white/90 -rotate-6"></i>
-                </div>
-                <div class="absolute -top-4 -left-4 w-24 h-24 bg-amber-400 rounded-xl -rotate-12 mix-blend-screen opacity-70 blur-xs"></div>
-            </div>
-        </div>
-    </section>
+<nav>
 
-    <!-- Services Section -->
-    <section id="services" class="py-20 px-6 max-w-7xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Our Recruitment Solutions</h2>
-            <p class="mt-4 text-lg text-slate-600">Tailored staffing strategies built to support the scaling, culture, and expertise required by your industry.</p>
-        </div>
+<div class="logo">
+<img src="nuevahire_logo.jpeg" alt="NuevaHire Logo">
+NuevaHire
+</div>
 
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- Service 1 -->
-            <div class="bg-white p-8 rounded-2xl shadow-xs border border-slate-100 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 text-xl mb-6">
-                    <i class="fa-solid fa-user-tie"></i>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-3">Executive Search</h3>
-                <p class="text-slate-600 leading-relaxed">Finding visionary C-level suite executives and key leadership talent to direct your organizational goals.</p>
-            </div>
-            
-            <!-- Service 2 -->
-            <div class="bg-white p-8 rounded-2xl shadow-xs border border-slate-100 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center text-indigo-600 text-xl mb-6">
-                    <i class="fa-solid fa-laptop-code"></i>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-3">Tech & Specialized Staffing</h3>
-                <p class="text-slate-600 leading-relaxed">We source hard-to-find engineering, technical, and highly specialized niche experts across modern disciplines.</p>
-            </div>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Features</a></li>
+<li><a href="#">Pricing</a></li>
+<li><a href="#">About</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
 
-            <!-- Service 3 -->
-            <div class="bg-white p-8 rounded-2xl shadow-xs border border-slate-100 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-emerald-600 text-xl mb-6">
-                    <i class="fa-solid fa-chart-line"></i>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-3">End-to-End RPO</h3>
-                <p class="text-slate-600 leading-relaxed">Complete Recruitment Process Outsourcing to rapidly scale your teams without internal overhead stress.</p>
-            </div>
-        </div>
-    </section>
+<a href="#" class="nav-btn">Get Started</a>
 
-    <!-- Why Choose Us Section -->
-    <section id="why-us" class="bg-slate-100 py-20 px-6">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-6">Why Companies Choose NuevaHire</h2>
-                <p class="text-slate-600 text-lg mb-8">We treat recruitment as a science, not a numbers game. We dive deep into candidate verification, background synergy, and soft-skill alignments.</p>
-                
-                <div class="space-y-4">
-                    <div class="flex items-start space-x-3">
-                        <i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i>
-                        <div>
-                            <h4 class="font-bold text-slate-900">95% Placement Retention</h4>
-                            <p class="text-slate-600">The candidates we place stay, excel, and scale alongside your business models.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start space-x-3">
-                        <i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i>
-                        <div>
-                            <h4 class="font-bold text-slate-900">Rigorous Pre-vetting Process</h4>
-                            <p class="text-slate-600">You only interview individuals who are fully vetted, skilled, and culturally aligned.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="bg-white p-8 rounded-2xl shadow-xl border border-slate-200">
-                <div class="grid grid-cols-2 gap-6 text-center">
-                    <div class="p-6 bg-slate-50 rounded-xl">
-                        <div class="text-4xl font-black text-blue-600">14 Days</div>
-                        <div class="text-sm font-semibold text-slate-500 mt-2">Average Time-to-Hire</div>
-                    </div>
-                    <div class="p-6 bg-slate-50 rounded-xl">
-                        <div class="text-4xl font-black text-blue-600">500+</div>
-                        <div class="text-sm font-semibold text-slate-500 mt-2">Professionals Placed</div>
-                    </div>
-                    <div class="p-6 bg-slate-50 rounded-xl">
-                        <div class="text-4xl font-black text-blue-600">98%</div>
-                        <div class="text-sm font-semibold text-slate-500 mt-2">Client Satisfaction</div>
-                    </div>
-                    <div class="p-6 bg-slate-50 rounded-xl">
-                        <div class="text-4xl font-black text-blue-600">10k+</div>
-                        <div class="text-sm font-semibold text-slate-500 mt-2">Vetted Talent Pool</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+</nav>
 
-    <!-- Contact Form Section -->
-    <section id="contact" class="py-20 px-6 max-w-4xl mx-auto">
-        <div class="bg-white shadow-xl rounded-3xl p-8 sm:p-12 border border-slate-100">
-            <div class="text-center max-w-2xl mx-auto mb-10">
-                <h2 class="text-3xl font-bold text-slate-900">Let’s Find Your Next Hire</h2>
-                <p class="text-slate-500 mt-2">Tell us about your staffing requirements, and an expert consultant will reach out within 24 business hours.</p>
-            </div>
-            
-            <!-- Using Formspree (Free tool) so you can get emails sent straight to you from a static GitHub page -->
-            <form action="https://formspree.io/f/your_form_id_here" method="POST" class="space-y-6">
-                <div class="grid sm:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-sm font-semibold text-slate-700 mb-2">Your Name</label>
-                        <input type="text" name="name" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-hidden focus:border-blue-600 focus:bg-white transition">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold text-slate-700 mb-2">Company Email</label>
-                        <input type="email" name="email" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-hidden focus:border-blue-600 focus:bg-white transition">
-                    </div>
-                </div>
+<section class="hero">
 
-                <div class="grid sm:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-sm font-semibold text-slate-700 mb-2">Company Name</label>
-                        <input type="text" name="company" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-hidden focus:border-blue-600 focus:bg-white transition">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold text-slate-700 mb-2">Looking For...</label>
-                        <select name="hiring_need" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-hidden focus:border-blue-600 focus:bg-white transition text-slate-600">
-                            <option>Full-Time Talent</option>
-                            <option>Contract / Remote Developers</option>
-                            <option>Executive Search</option>
-                            <option>General Inquiry</option>
-                        </select>
-                    </div>
-                </div>
+<div class="left">
 
-                <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-2">Tell us briefly about the role</label>
-                    <textarea name="message" rows="4" placeholder="e.g., We are looking for a Senior React Engineer..." required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-hidden focus:border-blue-600 focus:bg-white transition"></textarea>
-                </div>
+<h1>
+Hire Smarter with
+<span>Artificial Intelligence</span>
+</h1>
 
-                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-blue-600/20 cursor-pointer">
-                    Submit Request
-                </button>
-            </form>
-        </div>
-    </section>
+<p>
+NuevaHire helps recruiters automate sourcing, resume screening,
+candidate matching, interview scheduling, and hiring—all from one
+AI-powered platform.
+</p>
 
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-12 px-6 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-6 text-sm">
-            <div class="flex items-center space-x-2 text-white">
-                <i class="fa-solid fa-briefcase text-blue-500 text-xl"></i>
-                <span class="text-lg font-bold tracking-tight">Nueva<span class="text-blue-500">Hire</span></span>
-            </div>
-            <p>&copy; 2026 NuevaHire Consultancy. All rights reserved.</p>
-            <div class="flex space-x-4 text-base">
-                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-twitter"></i></a>
-            </div>
-        </div>
-    </footer>
+<div class="buttons">
+
+<a href="#" class="primary">Start Free Trial</a>
+
+<a href="#" class="secondary">Watch Demo</a>
+
+</div>
+
+</div>
+
+<div class="right">
+
+<div class="card">
+
+<img src="logo.jpeg">
+
+<div class="dashboard">
+
+<div class="box">
+<h3>10K+</h3>
+<p>Candidates</p>
+</div>
+
+<div class="box">
+<h3>500+</h3>
+<p>Companies</p>
+</div>
+
+<div class="box">
+<h3>95%</h3>
+<p>AI Accuracy</p>
+</div>
+
+<div class="box">
+<h3>70%</h3>
+<p>Faster Hiring</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">
+Why Choose NuevaHire?
+</h2>
+
+<div class="features">
+
+<div class="feature">
+<h3>🤖 AI Resume Screening</h3>
+<p>Automatically analyze resumes and shortlist the best candidates in seconds.</p>
+</div>
+
+<div class="feature">
+<h3>🎯 Smart Matching</h3>
+<p>AI matches candidates based on skills, experience, and job fit.</p>
+</div>
+
+<div class="feature">
+<h3>📅 Interview Scheduling</h3>
+<p>Schedule interviews effortlessly with automated reminders.</p>
+</div>
+
+<div class="feature">
+<h3>📊 Analytics Dashboard</h3>
+<p>Track hiring metrics, recruiter performance, and recruitment ROI.</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="stats">
+
+<div class="stat">
+<div class="counter" data-target="10000">0</div>
+<p>Candidates</p>
+</div>
+
+<div class="stat">
+<div class="counter" data-target="2500">0</div>
+<p>Companies</p>
+</div>
+
+<div class="stat">
+<div class="counter" data-target="95">0</div>
+<p>AI Accuracy</p>
+</div>
+
+<div class="stat">
+<div class="counter" data-target="70">0</div>
+<p>Recruitment Faster</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>Ready to Hire Better?</h2>
+
+<p>Experience the next generation of AI-powered recruitment.</p>
+
+<a href="#">Start Hiring Today</a>
+
+</section>
+
+<footer>
+
+© 2026 NuevaHire • AI Powered Recruitment Platform
+
+</footer>
+
+<script>
+
+const counters=document.querySelectorAll('.counter');
+
+counters.forEach(counter=>{
+
+const update=()=>{
+
+const target=+counter.getAttribute('data-target');
+
+const c=+counter.innerText;
+
+const increment=target/100;
+
+if(c<target){
+
+counter.innerText=Math.ceil(c+increment);
+
+setTimeout(update,20);
+
+}else{
+
+counter.innerText=target;
+
+}
+
+}
+
+update();
+
+});
+
+</script>
 
 </body>
 </html>
