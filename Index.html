@@ -3,287 +3,211 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>NuevaHire | AI Recruitment Platform</title>
-<meta name="description" content="NuevaHire helps companies hire faster using AI-powered recruitment automation.">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#071223;
-color:white;
-overflow-x:hidden;
+    background:#071223;
+    color:#fff;
+    overflow-x:hidden;
 }
 
 html{
-scroll-behavior:smooth;
-}
-
-a{
-text-decoration:none;
-color:white;
+    scroll-behavior:smooth;
 }
 
 header{
-position:fixed;
-width:100%;
-top:0;
-left:0;
-padding:18px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(8,20,40,.65);
-backdrop-filter:blur(20px);
-z-index:1000;
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:rgba(10,20,40,.8);
+    backdrop-filter:blur(15px);
+    z-index:1000;
 }
 
 .logo{
-display:flex;
-align-items:center;
-gap:12px;
-font-size:24px;
-font-weight:700;
-}
-
-.logo img{
-height:50px;
+    font-size:28px;
+    font-weight:700;
+    color:#00d4ff;
 }
 
 nav{
-display:flex;
-gap:35px;
+    display:flex;
+    gap:30px;
 }
 
 nav a{
-transition:.3s;
+    color:#fff;
+    text-decoration:none;
+    transition:.3s;
 }
 
 nav a:hover{
-color:#00d9ff;
+    color:#00d4ff;
 }
 
 .btn{
-padding:12px 24px;
-border-radius:30px;
-background:linear-gradient(90deg,#00d9ff,#1a6bff);
-font-weight:600;
-transition:.3s;
+    background:linear-gradient(45deg,#00d4ff,#2563eb);
+    padding:12px 24px;
+    border-radius:30px;
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
 }
 
 .btn:hover{
-transform:translateY(-3px);
-box-shadow:0 15px 40px rgba(0,217,255,.4);
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(0,212,255,.4);
 }
 
 .hero{
-padding:170px 8% 100px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-flex-wrap:wrap;
-position:relative;
+    padding:170px 8% 100px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
 }
 
 .hero-text{
-width:540px;
+    max-width:550px;
 }
 
-.hero-text h1{
-font-size:58px;
-line-height:1.15;
-margin-bottom:20px;
+.hero h1{
+    font-size:60px;
+    margin-bottom:20px;
 }
 
-.hero-text h1 span{
-color:#00d9ff;
+.hero span{
+    color:#00d4ff;
 }
 
-.hero-text p{
-font-size:18px;
-line-height:1.8;
-opacity:.8;
-margin-bottom:35px;
-}
-
-.buttons{
-display:flex;
-gap:20px;
-}
-
-.secondary{
-background:transparent;
-border:2px solid #00d9ff;
-}
-
-.hero-image{
-width:500px;
+.hero p{
+    font-size:18px;
+    line-height:1.8;
+    color:#ddd;
+    margin-bottom:35px;
 }
 
 .card{
-background:rgba(255,255,255,.08);
-padding:30px;
-border-radius:20px;
-backdrop-filter:blur(20px);
-box-shadow:0 20px 60px rgba(0,0,0,.4);
-animation:float 5s infinite ease-in-out;
+    background:rgba(255,255,255,.08);
+    padding:35px;
+    border-radius:20px;
+    backdrop-filter:blur(20px);
+    width:420px;
 }
 
 .card h3{
-margin-bottom:15px;
-color:#00d9ff;
+    color:#00d4ff;
+    margin-bottom:20px;
 }
 
 .card ul{
-line-height:2;
-opacity:.9;
-}
-
-@keyframes float{
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(-20px);}
+    line-height:2;
 }
 
 section{
-padding:90px 8%;
+    padding:80px 8%;
 }
 
 .title{
-text-align:center;
-font-size:42px;
-margin-bottom:60px;
+    text-align:center;
+    font-size:42px;
+    margin-bottom:60px;
 }
 
 .features{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
 }
 
 .feature{
-padding:30px;
-background:rgba(255,255,255,.05);
-border-radius:20px;
-transition:.4s;
+    background:#102040;
+    padding:30px;
+    border-radius:20px;
+    transition:.3s;
 }
 
 .feature:hover{
-transform:translateY(-10px);
-background:#0f2342;
+    transform:translateY(-10px);
 }
 
 .feature h3{
-margin:20px 0;
-color:#00d9ff;
+    margin-bottom:15px;
+    color:#00d4ff;
 }
 
 .stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
-text-align:center;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
 }
 
 .stat{
-background:#0d203d;
-padding:35px;
-border-radius:20px;
+    background:#102040;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
 }
 
 .number{
-font-size:45px;
-font-weight:700;
-color:#00d9ff;
-margin-bottom:10px;
+    font-size:48px;
+    color:#00d4ff;
+    font-weight:bold;
 }
 
 .cta{
-text-align:center;
-padding:100px 8%;
-background:linear-gradient(135deg,#0b1b34,#142d57);
-}
-
-.cta h2{
-font-size:46px;
-margin-bottom:20px;
+    text-align:center;
+    background:#0d1d36;
+    padding:100px 8%;
 }
 
 footer{
-padding:40px;
-text-align:center;
-background:#04101d;
-opacity:.8;
-}
-
-.blur{
-position:absolute;
-width:400px;
-height:400px;
-border-radius:50%;
-background:#00d9ff;
-filter:blur(180px);
-opacity:.18;
-}
-
-.blur.one{
-left:-120px;
-top:-100px;
-}
-
-.blur.two{
-right:-100px;
-bottom:0;
-background:#3366ff;
+    text-align:center;
+    padding:30px;
+    background:#050d18;
 }
 
 @media(max-width:900px){
 
-nav{
-display:none;
-}
-
 .hero{
-text-align:center;
-justify-content:center;
+    text-align:center;
+    justify-content:center;
 }
 
-.hero-text{
-width:100%;
+.card{
+    margin-top:50px;
+    width:100%;
 }
 
-.hero-image{
-margin-top:60px;
-width:100%;
+nav{
+    display:none;
 }
 
-.hero-text h1{
-font-size:42px;
-}
-
-.buttons{
-justify-content:center;
+.hero h1{
+    font-size:42px;
 }
 
 }
-
 </style>
 
 </head>
 
 <body>
-
-<div class="blur one"></div>
-<div class="blur two"></div>
 
 <header>
 
@@ -292,12 +216,10 @@ NuevaHire
 </div>
 
 <nav>
-
 <a href="#">Home</a>
 <a href="#features">Features</a>
-<a href="#stats">Stats</a>
+<a href="#stats">Statistics</a>
 <a href="#contact">Contact</a>
-
 </nav>
 
 <a href="#" class="btn">Get Started</a>
@@ -311,44 +233,26 @@ NuevaHire
 <h1>Hire Smarter with <span>AI</span></h1>
 
 <p>
-NuevaHire simplifies recruitment with AI-powered resume screening,
-candidate matching, interview scheduling and hiring analytics.
-Find top talent in minutes instead of weeks.
+NuevaHire is an AI-powered recruitment platform that automates sourcing,
+resume screening, candidate matching, interview scheduling, and hiring analytics.
 </p>
-
-<div class="buttons">
 
 <a href="#" class="btn">Start Hiring</a>
 
-<a href="#" class="btn secondary">Book Demo</a>
-
 </div>
-
-</div>
-
-<div class="hero-image">
 
 <div class="card">
 
-<h3>AI Recruitment Dashboard</h3>
+<h3>AI Hiring Dashboard</h3>
 
 <ul>
-
 <li>✔ Resume Screening</li>
-
 <li>✔ Candidate Ranking</li>
-
-<li>✔ Skill Matching</li>
-
-<li>✔ AI Interview Assistant</li>
-
+<li>✔ AI Skill Matching</li>
+<li>✔ Interview Scheduling</li>
 <li>✔ Recruitment Analytics</li>
-
 <li>✔ ATS Integration</li>
-
 </ul>
-
-</div>
 
 </div>
 
@@ -356,68 +260,28 @@ Find top talent in minutes instead of weeks.
 
 <section id="features">
 
-<h2 class="title">Why Choose NuevaHire?</h2>
+<h2 class="title">Why NuevaHire?</h2>
 
 <div class="features">
 
 <div class="feature">
-
-<h3>🤖 AI Resume Screening</h3>
-
-<p>
-Automatically shortlist the most relevant candidates using advanced AI.
-</p>
-
+<h3>🤖 AI Screening</h3>
+<p>Automatically shortlist qualified candidates.</p>
 </div>
 
 <div class="feature">
-
-<h3>⚡ Fast Hiring</h3>
-
-<p>
-Reduce hiring time by more than 70% with automated workflows.
-</p>
-
+<h3>⚡ Faster Hiring</h3>
+<p>Reduce hiring time with intelligent automation.</p>
 </div>
 
 <div class="feature">
-
-<h3>📊 Smart Analytics</h3>
-
-<p>
-Track recruitment performance with real-time hiring insights.
-</p>
-
+<h3>📊 Analytics</h3>
+<p>Track recruitment KPIs in real time.</p>
 </div>
 
 <div class="feature">
-
 <h3>🌍 Global Talent</h3>
-
-<p>
-Source and manage candidates from anywhere in the world.
-</p>
-
-</div>
-
-<div class="feature">
-
-<h3>🔒 Secure Platform</h3>
-
-<p>
-Enterprise-grade security and privacy for candidate information.
-</p>
-
-</div>
-
-<div class="feature">
-
-<h3>💬 AI Interview Assistant</h3>
-
-<p>
-Generate interview questions and evaluate candidates automatically.
-</p>
-
+<p>Hire from anywhere in the world.</p>
 </div>
 
 </div>
@@ -426,40 +290,28 @@ Generate interview questions and evaluate candidates automatically.
 
 <section id="stats">
 
-<h2 class="title">Our Impact</h2>
+<h2 class="title">Trusted by Recruiters</h2>
 
 <div class="stats">
 
 <div class="stat">
-
 <div class="number" data-target="500">0</div>
-
 Companies
-
 </div>
 
 <div class="stat">
-
 <div class="number" data-target="25000">0</div>
-
 Candidates
-
 </div>
 
 <div class="stat">
-
 <div class="number" data-target="95">0</div>
-
 Success %
-
 </div>
 
 <div class="stat">
-
 <div class="number" data-target="70">0</div>
-
 Time Saved %
-
 </div>
 
 </div>
@@ -468,62 +320,44 @@ Time Saved %
 
 <section class="cta">
 
-<h2>Ready to Transform Your Hiring?</h2>
+<h2>Ready to Hire Smarter?</h2>
 
-<p style="margin:20px 0 40px;opacity:.85;">
-Experience AI-powered recruitment with NuevaHire.
+<p style="margin:20px 0 35px;">
+Join NuevaHire and transform your hiring process with AI.
 </p>
 
-<a href="#" class="btn">Get Started Today</a>
+<a href="#" class="btn">Request Demo</a>
 
 </section>
 
 <footer id="contact">
 
-<img src="logo.png" height="55">
+<h2>NuevaHire</h2>
 
-<br><br>
-
-<p>
-
+<p style="margin-top:15px;">
 © 2026 NuevaHire. All Rights Reserved.
-
 </p>
 
 </footer>
 
 <script>
-
 const counters=document.querySelectorAll(".number");
 
 counters.forEach(counter=>{
+function update(){
+const target=+counter.dataset.target;
+const current=+counter.innerText;
+const increment=target/100;
 
-const update=()=>{
-
-const target=+counter.getAttribute("data-target");
-
-const count=+counter.innerText;
-
-const increment=target/120;
-
-if(count<target){
-
-counter.innerText=Math.ceil(count+increment);
-
+if(current<target){
+counter.innerText=Math.ceil(current+increment);
 setTimeout(update,20);
-
 }else{
-
 counter.innerText=target;
-
 }
-
 }
-
 update();
-
 });
-
 </script>
 
 </body>
